@@ -1,1 +1,7 @@
-.contentBody { margin-top: 40px;}
+.contentBody {
+    margin-top: 40px;
+}
+
+.legend {
+    margin-bottom: 0;
+}

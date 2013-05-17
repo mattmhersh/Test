@@ -6,6 +6,7 @@
     <!-- Bootstrap -->
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css"
           rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -52,14 +53,47 @@
             </table>
         </div>
         <div class="span3">
-            <input type="text" ng-model="newDbName">
-            <button class="btn btn-success" ng-click="addDb()">Add</button>
+            <form>
+                <fieldset>
+                    <legend class="legend">Add Beer</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="newBeerName">Name</label>
+
+                        <div class="controls">
+                            <input type="text" class="input-large" id="newBeerName" ng-model="newBeerName"
+                                   placeholder="Type something">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="newPrice">Price</label>
+
+                        <div class="controls input-prepend input-append">
+                            <span class="add-on">$</span>
+                            <input type="text" class="input-medium" id="newPrice" ng-model="newPrice"
+                                   placeholder="Type something">
+                            <span class="add-on">.00</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="newLastDrank">Last Drank</label>
+
+                        <div class="controls">
+                            <input type="text" class="input-medium" id="newLastDrank" ng-model="newLastDrank"
+                                   placeholder="Type something">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <button class="btn btn-success" ng-click="addDb()">Add</button>
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 <script src="app.js"></script>
 </body>
