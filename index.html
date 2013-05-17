@@ -28,8 +28,30 @@
     </div>
 </div>
 <div class="container contentBody" ng-app>
+
+    <div ng-controller="ListCtrl">
+
+        <h3>Mongo Beers:</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Beer</th>
+                <th>Price</th>
+                <th>Last Had</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.price | currency }}</td>
+                <td>{{item.lastDrank | date : 'fullDate' }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div ng-controller="MyCtrl">
-        <h3>Beers:</h3>
+        <h3>Local Beers:</h3>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -41,7 +63,7 @@
             <tbody>
                 <tr ng-repeat="item in items">
                     <td>{{item.name}}</td>
-                    <td>{{item.price}}</td>
+                    <td>{{item.price | currency }}</td>
                     <td>{{item.lastDrank | date : 'fullDate' }}</td>
                     <td><button class="btn btn-danger" ng-click="removeItem(item)">Remove</button></td>
                 </tr>

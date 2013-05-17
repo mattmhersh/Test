@@ -18,3 +18,20 @@ var MyCtrl = function($scope) {
     }
 }
 
+var ListCtrl = function($scope, $http) {
+
+    //https://api.mongolab.com/api/1/databases?apiKey=kQCb_3UOG14wG_RZlSanbD-rPMoa7cgK
+    var url = "https://api.mongolab.com/api/1/databases/matthersh/collections/Beers/?apiKey=kQCb_3UOG14wG_RZlSanbD-rPMoa7cgK";
+    var result = $http.get(url);
+    result.success(function(data)
+    {
+       $scope.items = data;
+       /*
+       for (x in $scope.items)
+       {
+           alert($scope.items[x].name);
+       }
+       */
+    });
+}
+
