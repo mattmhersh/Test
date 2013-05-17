@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<div class="container" ng-app>
 
-    <div class="masthead">
-        <h3 class="muted">Welcome to the show</h3>
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- /.navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Welcome to the Show</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
     </div>
+</div>
+
+<div class="container contentBody" ng-app>
 
     <div ng-controller="MyCtrl">
         <h3>Beers:</h3>
@@ -33,14 +40,14 @@
         </ul>
         <p>
             <label>Beer Name</label>
-            <input type="text">
+            <input type="text" ng-model="name">
         </p>
         <p>
             <label>Price</label>
-            <input type="text">
+            <input type="text" ng-model="price">
         </p>
         <p>
-            <button class="btn btn-success">Add</button>
+            <button class="btn btn-success" ng-click="addBeer()">Add</button>
         </p>
         <h3><ng-pluralize count="items.length" when="pluralizer"></ng-pluralize></h3>
     </div>

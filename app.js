@@ -9,5 +9,10 @@ var MyCtrl = function($scope) {
         other: "{} Beers in Fridge"
     }
 
+    $scope.addBeer = function() {
+        var newBeer = { name : $scope.name, price : $scope.price, lastDrank : new Date() };
+        $scope.items.push(newBeer);
+    }
+
 }
 
