@@ -1,19 +1,12 @@
-var ngMongo = angular.module("ngMongo", [])
+var ngMongo = angular.module("ngMongo", ['ngResource'])
 
-ngMongo.factory("Mongo", function($http) {
+ngMongo.factory("Mongo", function($resource) {
     return {
-        database : function() {
-            var url = "https://api.mongolab.com/api/1/databases/matthersh/collections/Beers/?apiKey=kQCb_3UOG14wG_RZlSanbD-rPMoa7cgK";
-            return $http.get(url);
-        }
+        database : $resource("https://api.mongolab.com/api/1/databases/matthersh/collections/Beers/?apiKey=kQCb_3UOG14wG_RZlSanbD-rPMoa7cgK")
     }
 });
 
 ngMongo.controller("ListCtrl", function($scope, Mongo) {
-    var result = Mongo.database();
-    result.success(function(data)
-    {
-        $scope.items = data;
-    });
+    $scope.items = Mongo.database.query({});
 });
 
