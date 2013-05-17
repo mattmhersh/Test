@@ -4,7 +4,8 @@
     <Title>AngularJS Demo</Title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css"
+          rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -17,43 +18,49 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="brand" href="#">Welcome to the Show</a>
+
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
+            <!--/.nav-collapse -->
         </div>
     </div>
 </div>
 <div class="container contentBody" ng-app="ngMongo">
 
-    <div ng-controller="ListCtrl">
-
+    <div ng-controller="ListCtrl" class="row">
         <h3>Mongo Beers:</h3>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Beer</th>
-                <th>Price</th>
-                <th>Last Had</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="item in items">
-                <td>{{item.name}}</td>
-                <td>{{item.price | currency }}</td>
-                <td>{{item.lastDrank | date : 'fullDate' }}</td>
-            </tr>
-            </tbody>
-        </table>
+
+        <div class="span9">
+            <table class="table table-striped">
+                <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.price | currency }}</td>
+                    <td>{{item.lastDrank | date : 'fullDate' }}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="removeDb(item)">
+                            <i class="icon icon-remove icon-white"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="span3">
+            <input type="text" ng-model="newDbName">
+            <button class="btn btn-success" ng-click="addDb()">Add</button>
+        </div>
     </div>
 </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
