@@ -1,25 +1,53 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <Title>AngularJS Demo</Title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container" ng-app>
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{yourName}}!</h1>
+
+    <div class="masthead">
+        <h3 class="muted">Welcome to the show</h3>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- /.navbar -->
+    </div>
 
     <div ng-controller="MyCtrl">
+        <h3>Beers:</h3>
         <ul>
             <li ng-repeat="item in items">
                 {{item.name}}: {{item.price | currency}}. Last had it on {{item.lastDrank | date : 'fullDate' }}.
             </li>
         </ul>
+        <p>
+            <label>Beer Name</label>
+            <input type="text">
+        </p>
+        <p>
+            <label>Price</label>
+            <input type="text">
+        </p>
+        <p>
+            <button class="btn btn-success">Add</button>
+        </p>
+        <h3><ng-pluralize count="items.length" when="pluralizer"></ng-pluralize></h3>
     </div>
-
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
