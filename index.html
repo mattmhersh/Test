@@ -49,39 +49,6 @@
             </tbody>
         </table>
     </div>
-
-    <div ng-controller="MyCtrl">
-        <h3>Local Beers:</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Beer</th>
-                    <th>Price</th>
-                    <th>Last Had</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in items">
-                    <td>{{item.name}}</td>
-                    <td>{{item.price | currency }}</td>
-                    <td>{{item.lastDrank | date : 'fullDate' }}</td>
-                    <td><button class="btn btn-danger" ng-click="removeItem(item)">Remove</button></td>
-                </tr>
-            </tbody>
-        </table>
-        <p>
-            <label>Beer Name</label>
-            <input type="text" ng-model="name">
-        </p>
-        <p>
-            <label>Price</label>
-            <input type="text" ng-model="price">
-        </p>
-        <p>
-            <button class="btn btn-success" ng-click="addBeer()">Add</button>
-        </p>
-        <h3><ng-pluralize count="items.length" when="pluralizer"></ng-pluralize></h3>
-    </div>
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
