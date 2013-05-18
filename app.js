@@ -1,8 +1,4 @@
-$(function () {
-    $("#newLastDrank").datepicker();
-    $("#newLastDrank").datepicker("option", "dateFormat", "yy-mm-dd");
-});
-
+'use strict';
 
 // This is a module for cloud persistance in mongolab - https://mongolab.com
 var ngMongo = angular.module('ngMongo', ['ngResource']).
@@ -26,15 +22,13 @@ var ngMongo = angular.module('ngMongo', ['ngResource']).
         return database;
     });
 
-
 ngMongo.controller("ListCtrl", function ($scope, Mongo) {
+
     $scope.items = Mongo.query({});
     $scope.addDb = function () {
         var newBeerName = $scope.newBeerName;
         var newPrice = $scope.newPrice;
         var newLastDrank = $scope.newLastDrank;
-        alert(newLastDrank);
-        return;
         if (newBeerName) {
             var newDb = new Mongo({name: newBeerName, price: newPrice, lastDrank: newLastDrank});
             newDb.$save();
